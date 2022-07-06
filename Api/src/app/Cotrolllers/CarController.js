@@ -2,9 +2,9 @@ const CarRepository = require('../Repositories/CarRepository')
 
 class CarController {
   async index (request, response) {
-    const contact = await CarRepository.findAll()
+    const cars = await CarRepository.findAll()
 
-    response.json(contact)
+    response.json(cars)
   }
 
   show (request, response) {}
@@ -12,13 +12,24 @@ class CarController {
   async store (request, response) {
     const { name, marca, cor, ano, placa, descricao } = request.body
 
-    const contact = await CarRepository.create({ name, marca, cor, ano, placa, descricao })
+    const car = await CarRepository.create({ name, marca, cor, ano, placa, descricao })
 
-    response.json(contact)
+    response.json(car)
   }
 
-  update (request, response) {}
-  delete (request, response) {}
+  async update (request, response) {
+    const { id } = await request.params
+    const { name, marca, cor, ano, placa, descricao } = request.body
+
+    const car = await CarRepository.update(id, { name, marca, cor, ano, placa, descricao })
+    response.json(car)
+  }
+
+  async delete (request, response) {
+    const { id } = request.params
+    await CarRepository.delete(id)
+    response.sendStatus(204)
+  }
 }
 
 module.exports = new CarController()

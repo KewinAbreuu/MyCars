@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   width: 100vw;
-  min-height: 100vw;
+  min-height: 100%;
   align-items:center;
   flex-direction:column;
   background-color: #fff;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const SubContainer = styled.div`
   display: flex;
   width: 60%;
-  min-height: 100vw;
+  min-height: 100%;
   align-items:center;
   flex-direction:column;
   background-color: #cdcdcd;
@@ -19,11 +19,11 @@ export const SubContainer = styled.div`
 export const ContainerForm = styled.div`
   display: flex;
   width: 60%;
-  min-height: 100vw;
+  min-height: 100%;
   align-items:flex-start;
   flex-direction:column;
   background-color: #cdcdcd;
-  padding: 100px 0px 0px 0px ;
+  padding: 54px 0px 0px 0px ;
 `
 
 export const Input = styled.input`
