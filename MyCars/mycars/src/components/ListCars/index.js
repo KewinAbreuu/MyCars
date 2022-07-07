@@ -1,14 +1,17 @@
 
-import { Container, Desc } from './style'
+import { Container, Info, Img, SubContainer } from './style'
 import axios from 'axios'
 import { useState } from 'react'
 
 import Favorite from '../../assets/life.png'
 import Close from '../../assets/close.png'
-import { Link } from 'react-router-dom'
+import Edit from '../../assets/edit.png'
+import { useHistory } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 export default function ListCars ({ nome, preco, desc, ano, cor, marca, placa, idParams }) {
   const [fav, setFav] = useState(true)
+  const history = useHistory()
 
   function apagar () {
     axios.delete(`http://localhost:3002/cars/${idParams}`)
@@ -37,21 +40,26 @@ export default function ListCars ({ nome, preco, desc, ano, cor, marca, placa, i
     }
   }
 
+  function vai () {
+    history.push(`/updateCar/${idParams}`)
+  }
+
   return (
    <Container>
-    <div style={{ alignSelf: 'end' }}>
-      {fav === true ? <img src={Favorite} style={{ width: 50, height: 50, cursor: 'pointer' }} onClick={favorite}/> : <></>}
-      <img src={Close} style={{ width: 50, height: 50, cursor: 'pointer' }} onClick={apagar}/>
-      <Link to={`/updateCar/${idParams}`}>UPDATE</Link>
-    </div>
+    <SubContainer>
+      <Img src={Edit} onClick={vai}/>
+      <Img src={Close} onClick={apagar}/>
 
-    <Desc>{nome}</Desc>
-    <Desc>{marca}</Desc>
-    <Desc>{placa}</Desc>
-    <Desc>{preco}</Desc>
-    <Desc>{desc}</Desc>
-    <Desc>{ano}</Desc>
-    <Desc>{cor}</Desc>
+      {fav === true && <Img src={Favorite} onClick={favorite}/> }
+    </SubContainer>
+
+    <Info>{`${nome}`}</Info>
+    <Info>{`Marca: ${marca}`}</Info>
+    <Info>{`Ano: ${ano}`}</Info>
+    <Info>{`Cor: ${cor}`}</Info>
+    <Info>{`Preço: ${preco}`}</Info>
+    <Info>{`Descrição: ${desc}`}</Info>
+    <Info>{`Placa: ${placa}`}</Info>
    </Container>
   )
 }

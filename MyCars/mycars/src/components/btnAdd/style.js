@@ -7,11 +7,11 @@ export const Container = styled.div`
   align-items:center;
   justify-content: center;
   flex-direction:column;
-  background-color: #66CDAA;
+  background-color: #8BCCC4;
   border-radius: 30px;
 
   :hover{
-    background-color: #00FA9A;
+    background-color: #C5E4DF;
   }
 `
 

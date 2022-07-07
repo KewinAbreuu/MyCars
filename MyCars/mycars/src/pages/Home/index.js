@@ -18,7 +18,7 @@ export default function Home () {
         })
     }
     loadApi()
-  }, [busca])
+  }, [busca, cars])
 
   const carsFilter = cars.filter((car) => {
     return (

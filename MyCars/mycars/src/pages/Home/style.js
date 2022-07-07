@@ -38,7 +38,7 @@ export const Search = styled.input`
 
   border: none;
   border-radius: 30px;
-  background-color: #40E0D0;
+  background-color: #C5E4DF;
 
   ::placeholder{
     font-size: 16px;

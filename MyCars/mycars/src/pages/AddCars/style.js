@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const SubContainer = styled.div`
   display: flex;
   width: 60%;
-  min-height: 100%;
+  min-height: 100vw;
   align-items:center;
   flex-direction:column;
   background-color: #cdcdcd;

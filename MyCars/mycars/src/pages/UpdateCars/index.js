@@ -43,19 +43,17 @@ export default function UpdateCar () {
       })
   }
 
-  function preencheDate () {
-    if (!nome || !marca || !cor || !ano || !placa || !desc) {
-      setNome(cars.name)
-      setMarca(cars.marca)
-      setCor(cars.cor)
-      setPlaca(cars.placa)
-      setDesc(cars.descricao)
-    }
+  function preencheData () {
+    setNome(cars.name)
+    setMarca(cars.marca)
+    setCor(cars.cor)
+    setAno(cars.ano)
+    setPlaca(cars.placa)
+    setDesc(cars.descricao)
   }
 
   return (
     <Container>
-      UPDATE
       <SubContainer>
         <div style={{ alignSelf: 'flex-start' }}>
           <BtnBack press="/"/>
@@ -104,8 +102,9 @@ export default function UpdateCar () {
           value={desc}
           placeholder={cars.descricao}/>
 
+          <BtnSalvar onClick={preencheData}>Preencher</BtnSalvar>
           <BtnSalvar onClick={updateCar}>SALVAR</BtnSalvar>
-          <BtnSalvar onClick={preencheDate}>Preencher</BtnSalvar>
+
         </ContainerForm>
       </SubContainer>
 
