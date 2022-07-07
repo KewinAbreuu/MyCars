@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Container = styled.div`
   display: flex;
   width: 300px;
@@ -10,6 +9,10 @@ export const Container = styled.div`
   flex-direction:column;
   background-color: #66CDAA;
   border-radius: 30px;
+
+  :hover{
+    background-color: #00FA9A;
+  }
 `
 
 export const TextBtn = styled.h1`

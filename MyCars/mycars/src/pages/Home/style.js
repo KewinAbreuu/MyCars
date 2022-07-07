@@ -7,6 +7,10 @@ export const Container = styled.div`
   align-items:center;
   flex-direction:column;
   background-color: #cdcdcd;
+
+  @media (max-width:860px){
+    background-color: #fff;
+  }
 `
 export const SubContainer = styled.div`
   display: flex;
@@ -15,6 +19,11 @@ export const SubContainer = styled.div`
   align-items:center;
   flex-direction:column;
   background-color: #fff;
+
+  @media (max-width:860px){
+    width:100%;
+    padding: 0px 50px 0px 50px;
+  }
 `
 
 export const Search = styled.input`
@@ -39,5 +48,8 @@ export const Search = styled.input`
     box-shadow: 0 0 0 0;
     outline: 0;
   }
-`
 
+  @media (max-width:860px){
+    width:100%;
+  }
+`

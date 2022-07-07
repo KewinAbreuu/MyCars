@@ -7,13 +7,17 @@ export const Container = styled.div`
   align-items:flex-start;
   flex-direction:column;
 
-  background-color: red;
+  background-color: #A52A2A;
   margin-bottom: 50px;
-  padding: 50px;
+  padding: 30px;
+
+  @media(max-width:860px){
+    width: 100%;
+  }
 `
 
 export const Desc = styled.h1`
-  font-size: 26px;
+  font-size: 16px;
   font-weight: 100;
   color: #fff;
   text-align: start;

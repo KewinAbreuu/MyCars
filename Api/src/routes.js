@@ -5,6 +5,7 @@ const CarController = require('./app/Cotrolllers/CarController')
 const router = Router()
 
 router.get('/cars', CarController.index)
+router.get('/cars/:id', CarController.show)
 router.post('/cars', CarController.store)
 router.delete('/cars/:id', CarController.delete)
 router.put('/cars/:id', CarController.update)

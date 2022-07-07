@@ -6,6 +6,11 @@ class CarRepository {
     return row
   }
 
+  async findById (id) {
+    const [row] = await db.query('SELECT * FROM cars WHERE id = $1', [id])
+    return row
+  }
+
   async create ({ name, marca, cor, ano, placa, descricao }) {
     const [row] = await db.query(`
       INSERT INTO cars (name, marca, cor, ano, placa, descricao)

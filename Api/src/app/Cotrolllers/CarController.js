@@ -7,7 +7,11 @@ class CarController {
     response.json(cars)
   }
 
-  show (request, response) {}
+  async show (request, response) {
+    const { id } = request.params
+    const car = await CarRepository.findById(id)
+    response.json(car)
+  }
 
   async store (request, response) {
     const { name, marca, cor, ano, placa, descricao } = request.body
