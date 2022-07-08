@@ -19,7 +19,7 @@ Start no front-end :
   $ npm start
 ```
 ## 🚀  Back-end Pasta (API)
-</hr>
+
 ## 💻 Techs usadas</hr>
 - [x] NodeJS
 - [x] Docker
