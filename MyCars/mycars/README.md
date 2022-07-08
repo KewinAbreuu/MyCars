@@ -1,5 +1,5 @@
-# Bem-vindo ao Front-end da aplicação Mycars! </hr>
-<p>O Mycars é um projeto baseado em um CRUD de veículos<p>
+# Bem-vindo ao Mycars! </hr>
+<p>O Mycars é um projeto baseado em um CRUD de veículos.<p>
 
 ## 💻 Funcionalidades</hr>
 <p>-Cadastar</p>
@@ -19,8 +19,9 @@ Start no front-end :
   $ npm start
 ```
 
-## 🚀  Back-end Pasta (API) </hr>
-
+</hr>
+## 🚀  Back-end Pasta (API)
+</hr>
 ## 💻 Techs usadas</hr>
 - [x] NodeJS
 - [x] Docker
@@ -28,14 +29,15 @@ Start no front-end :
 - [x] Cors
 - [x] Axios
 
-## Usando...
+## 👨‍💻 Usando...
 ```
 - [x] Criar container Docker com o nome pg
 - [x] Usuario root, passwor root
 - [x] Ir dentro da API, na pasta database e criar o banco de dados no postgres(DOCKER)
-
-Start na API:
 ```
+
+```
+🔥 Start na API:
   $ npm run dev
 ```
 
