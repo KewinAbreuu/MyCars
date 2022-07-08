@@ -11,12 +11,12 @@ class CarRepository {
     return row
   }
 
-  async create ({ name, marca, cor, ano, placa, descricao }) {
+  async create ({ name, marca, cor, ano, placa, descricao, preco }) {
     const [row] = await db.query(`
-      INSERT INTO cars (name, marca, cor, ano, placa, descricao)
-      VALUES($1, $2, $3, $4, $5, $6)
+      INSERT INTO cars (name, marca, cor, ano, placa, descricao, preco)
+      VALUES($1, $2, $3, $4, $5, $6, $7)
       RETURNING *
-    `, [name, marca, cor, ano, placa, descricao])
+    `, [name, marca, cor, ano, placa, descricao, preco])
 
     return row
   }

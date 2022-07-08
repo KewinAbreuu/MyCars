@@ -9,21 +9,37 @@ class CarController {
 
   async show (request, response) {
     const { id } = request.params
+
     const car = await CarRepository.findById(id)
+
+    if (!car) {
+      return response.status(404).json({ Error: 'Esse Carro Não Existe!' })
+    }
     response.json(car)
   }
 
   async store (request, response) {
-    const { name, marca, cor, ano, placa, descricao } = request.body
+    const { name, marca, cor, ano, placa, descricao, preco } = request.body
 
-    const car = await CarRepository.create({ name, marca, cor, ano, placa, descricao })
+    if (!name || !marca || !cor || !ano || !placa || !descricao || !preco) {
+      return response.status(404).json({ Error: 'Preencha Todos os Campos' })
+    }
+
+    const car = await CarRepository.create({ name, marca, cor, ano, placa, descricao, preco })
 
     response.json(car)
   }
 
   async update (request, response) {
     const { id } = await request.params
+
     const { name, marca, cor, ano, placa, descricao } = request.body
+
+    const carExists = await CarRepository.findById(id)
+
+    if (!carExists) {
+      return response.status(400).json({ Error: 'Esse Veículo Não Existe' })
+    }
 
     const car = await CarRepository.update(id, { name, marca, cor, ano, placa, descricao })
     response.json(car)

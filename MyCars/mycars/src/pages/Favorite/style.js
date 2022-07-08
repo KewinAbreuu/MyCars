@@ -20,35 +20,9 @@ export const SubContainer = styled.div`
   flex-direction:column;
   background-color: #fff;
 
-
   @media (max-width:860px){
     width:100%;
-    padding: 0px 20px 0px 20px;
-  }
-`
-
-export const ContainerHeader = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction:row;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0px 20px 10px;
-
-  @media (max-width:860px){
-    width:100%;
-    padding: 50px 10px 20px 10px;
-  }
-`
-
-export const Img = styled.img`
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-
-  :hover{
-    background-color: #EA5050;
-    border-radius:30px;
+    padding: 0px 50px 0px 50px;
   }
 `
 
@@ -59,6 +33,7 @@ export const Search = styled.input`
   align-items:center;
   flex-direction:column;
 
+  margin: 50px 0px 20px 0px;
   padding: 20px;
 
   border: none;

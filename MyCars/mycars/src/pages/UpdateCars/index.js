@@ -12,6 +12,7 @@ export default function UpdateCar () {
   const [ano, setAno] = useState('')
   const [placa, setPlaca] = useState('')
   const [desc, setDesc] = useState('')
+  const [preco, setPreco] = useState('')
 
   const history = useHistory()
   const { id } = useParams()
@@ -33,14 +34,19 @@ export default function UpdateCar () {
       cor: cor.toUpperCase(),
       ano: ano.toUpperCase(),
       placa: placa.toUpperCase(),
-      descricao: desc.toUpperCase()
+      descricao: desc.toUpperCase(),
+      preco: preco.toUpperCase()
     }
 
-    axios.put(`http://localhost:3002/cars/${id}`, data)
-      .then((result) => {
-        console.log(result)
-        history.push('/')
-      })
+    if (!nome || !marca || !cor || !ano || !placa || !desc || !preco) {
+      alert('Preencha todos os campos!')
+    } else {
+      axios.put(`http://localhost:3002/cars/${id}`, data)
+        .then((result) => {
+          console.log(result)
+          history.push('/')
+        })
+    }
   }
 
   function preencheData () {
@@ -50,6 +56,7 @@ export default function UpdateCar () {
     setAno(cars.ano)
     setPlaca(cars.placa)
     setDesc(cars.descricao)
+    setPreco(cars.preco)
   }
 
   return (
@@ -94,6 +101,13 @@ export default function UpdateCar () {
           onChange={(e) => setPlaca(e.target.value)}
           value={placa}
            placeholder={cars.placa}/>
+
+          <Label>Preço *</Label>
+          <Input
+          type="number"
+          onChange={(e) => setPreco(e.target.value)}
+          value={preco}
+          placeholder={`R$${cars.preco}`}/>
 
           <Label>Descrição *</Label>
           <Input

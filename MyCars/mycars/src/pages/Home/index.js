@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react'
 
 import axios from 'axios'
 
-import { Container, SubContainer, Search } from './style'
+import { Container, SubContainer, Search, ContainerHeader, Img } from './style'
+import Life from '../../assets/life.png'
 import BtnAdd from '../../components/btnAdd'
 import ListCars from '../../components/ListCars'
+import { useHistory } from 'react-router-dom'
 
 export default function Home () {
   const [cars, setCars] = useState([])
   const [busca, setBusca] = useState('')
+
+  const history = useHistory()
 
   useEffect(() => {
     function loadApi () {
@@ -27,15 +31,21 @@ export default function Home () {
       car.cor.startsWith(busca.toUpperCase()) ||
       car.ano.startsWith(busca.toUpperCase()) ||
       car.placa.startsWith(busca.toUpperCase()) ||
-      car.descricao.startsWith(busca.toUpperCase())
+      car.descricao.startsWith(busca.toUpperCase()) ||
+      car.preco.startsWith(busca.toUpperCase())
     )
   })
 
   return (
     <Container>
       <SubContainer>
-        <Search placeholder="Buscar" onChange={(e) => setBusca(e.target.value)} value={busca}/>
+        <ContainerHeader>
+          <Search placeholder="Buscar" onChange={(e) => setBusca(e.target.value)} value={busca}/>
+          <Img src={Life} onClick={() => history.push('/favorite')}/>
+        </ContainerHeader>
+
         <BtnAdd press="addCar"/>
+
         <h3 style={{ marginTop: 10, marginBottom: 10 }}>Meus Anuncios</h3>
 
         {carsFilter.map((car) => {
@@ -47,7 +57,8 @@ export default function Home () {
             placa={car.placa}
             desc={car.descricao}
             ano={car.ano}
-            cor={car.cor}/>
+            cor={car.cor}
+            preco={car.preco}/>
           )
         })}
       </SubContainer>
